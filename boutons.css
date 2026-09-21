@@ -1,0 +1,63 @@
+/* ==============================================
+   BOUTONS — Style uniforme
+   ============================================== */
+.btn-primaire, .btn-secondaire, .bouton-grand {
+  padding: 1rem 2rem;
+  border-radius: var(--rayon-md);
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Bouton principal — néon bleu */
+.btn-primaire {
+  background: linear-gradient(90deg, var(--neon-bleu), var(--neon-bleu-fonce));
+  color: white;
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+}
+.btn-primaire:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0, 217, 255, 0.5);
+}
+
+/* Bouton secondaire — contour néon */
+.btn-secondaire {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--neon-bleu);
+  border: 2px solid var(--neon-bleu);
+}
+.btn-secondaire:hover {
+  background: rgba(0, 217, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Bouton grand */
+.bouton-grand {
+  background: linear-gradient(90deg, var(--neon-bleu), var(--neon-bleu-fonce));
+  color: white;
+  font-size: 1.2rem;
+  padding: 1.2rem 3rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Bouton danger — rouge néon */
+.btn-primaire.danger {
+  background: linear-gradient(90deg, var(--neon-rouge), var(--neon-rouge-fonce));
+  box-shadow: 0 0 15px rgba(255, 51, 102, 0.3);
+}
+.btn-primaire.danger:hover {
+  box-shadow: 0 5px 20px rgba(255, 51, 102, 0.5);
+}
+
+/* Bouton désactivé */
+.btn-primaire:disabled, .btn-secondaire:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}

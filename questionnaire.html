@@ -1,0 +1,89 @@
+<h1>📋 Ton avis fait grandir Stream Unity</h1>
+<p>Ce questionnaire est là pour que tu me dises ce que tu aimes, ce que tu voudrais changer, et ce qui te manque. Toutes tes réponses sont précieuses — c'est <strong>toi</strong> qui construis la suite avec moi ✨</p>
+
+<form id="form-avis" class="bloc-parametres">
+    <!-- Question 1 -->
+    <div style="margin-bottom: 1.5rem;">
+        <label><strong>1. Qu'est-ce que tu préfères sur Stream Unity ?</strong></label>
+        <textarea id="q1" rows="3" placeholder="Tes coups de cœur, ce qui te plaît le plus..." style="width:100%;padding:0.8rem;margin-top:0.5rem;border-radius:8px;border:1px solid #00d9ff40;background:#101020;color:white;"></textarea>
+    </div>
+
+    <!-- Question 2 -->
+    <div style="margin-bottom: 1.5rem;">
+        <label><strong>2. Y a-t-il quelque chose que tu n'aimes pas ou qui te gêne ?</strong></label>
+        <textarea id="q2" rows="3" placeholder="Rien n'est méchant, sois honnête ! Ça m'aide à corriger..." style="width:100%;padding:0.8rem;margin-top:0.5rem;border-radius:8px;border:1px solid #00d9ff40;background:#101020;color:white;"></textarea>
+    </div>
+
+    <!-- Question 3 -->
+    <div style="margin-bottom: 1.5rem;">
+        <label><strong>3. Qu'aimerais-tu voir apparaître ?</strong></label>
+        <textarea id="q3" rows="3" placeholder="Nouvelles rubriques, contenus, outils, ambiance... Tout est possible !" style="width:100%;padding:0.8rem;margin-top:0.5rem;border-radius:8px;border:1px solid #00d9ff40;background:#101020;color:white;"></textarea>
+    </div>
+
+    <!-- Question 4 -->
+    <div style="margin-bottom: 1.5rem;">
+        <label><strong>4. L'ambiance visuelle (couleurs, fond, style) — qu'en penses-tu ?</strong></label>
+        <select id="q4" style="width:100%;padding:0.8rem;margin-top:0.5rem;border-radius:8px;background:#101020;color:white;border:1px solid #00d9ff40;">
+            <option value="">Choisis une réponse</option>
+            <option value="parfait">✨ C'est parfait comme ça</option>
+            <option value="plus_fonce">🌑 Plus sombre / plus mystérieux</option>
+            <option value="plus_clair">☀️ Plus clair / plus lumineux</option>
+            <option value="couleurs_autres">🎨 D'autres couleurs</option>
+            <option value="je_ne_sais_pas">🤔 Je n'ai pas de préférence</option>
+        </select>
+    </div>
+
+    <!-- Question 5 -->
+    <div style="margin-bottom: 1.5rem;">
+        <label><strong>5. Une idée, un mot, un souhait ?</strong></label>
+        <textarea id="q5" rows="2" placeholder="Tout ce qui te passe par la tête..." style="width:100%;padding:0.8rem;margin-top:0.5rem;border-radius:8px;border:1px solid #00d9ff40;background:#101020;color:white;"></textarea>
+    </div>
+
+    <!-- Question 6 — Anonyme ou non -->
+    <div style="margin-bottom: 1.5rem;">
+        <label style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="checkbox" id="anonyme">
+            Je préfère rester anonyme (mon nom ne sera pas sauvegardé)
+        </label>
+    </div>
+
+    <!-- Bouton envoyer -->
+    <button type="submit" class="btn-primaire" style="width:100%;font-size:1.1rem;">📤 Envoyer mon avis</button>
+</form>
+
+<div id="confirmation" class="bloc-parametres" style="display:none;text-align:center;">
+    <h3>✅ Merci infiniment !</h3>
+    <p>Ton avis a été enregistré. Chaque mot compte et je lis tout. Stream Unity avance grâce à toi 💜</p>
+    <button class="btn-secondaire" onclick="fermerAvis()">Fermer</button>
+</div>
+
+<script>
+document.getElementById('form-avis').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const reponses = {
+        date: new Date().toLocaleString('fr-FR'),
+        q1: document.getElementById('q1').value.trim(),
+        q2: document.getElementById('q2').value.trim(),
+        q3: document.getElementById('q3').value.trim(),
+        q4: document.getElementById('q4').value,
+        q5: document.getElementById('q5').value.trim(),
+        anonyme: document.getElementById('anonyme').checked
+    };
+
+    // Récupère les réponses déjà sauvegardées
+    let avis = JSON.parse(localStorage.getItem('avis_amélioration') || '[]');
+    avis.push(reponses);
+    localStorage.setItem('avis_amélioration', JSON.stringify(avis));
+
+    // Affiche la confirmation
+    document.getElementById('form-avis').style.display = 'none';
+    document.getElementById('confirmation').style.display = 'block';
+});
+
+function fermerAvis() {
+    document.getElementById('confirmation').style.display = 'none';
+    document.getElementById('form-avis').style.display = 'block';
+    document.getElementById('form-avis').reset();
+}
+</script>

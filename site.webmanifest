@@ -1,0 +1,16 @@
+{
+    "name": "Stream Unity",
+    "short_name": "StreamUnity",
+    "description": "Plateforme communautaire d'Hyphtalès — Au-delà du Rêve et du Cauchemar",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#080810",
+    "theme_color": "#00d9ff",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "any",
+            "type": "image/x-icon"
+        }
+    ]
+}

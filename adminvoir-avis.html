@@ -1,0 +1,39 @@
+<h1>📊 Avis des visiteurs</h1>
+<button class="btn-primaire" onclick="chargerAvis()">🔄 Recharger</button>
+<button class="btn-secondaire" onclick="toutSupprimer()">🗑️ Tout effacer</button>
+
+<div id="liste-avis" style="margin-top:2rem;"></div>
+
+<script>
+function chargerAvis() {
+    const avis = JSON.parse(localStorage.getItem('avis_amélioration') || '[]');
+    const conteneur = document.getElementById('liste-avis');
+    
+    if (avis.length === 0) {
+        conteneur.innerHTML = '<p class="texte-info">Aucun avis pour l\'instant. Le premier à donner son avis sera le premier ! ✨</p>';
+        return;
+    }
+
+    conteneur.innerHTML = '';
+    avis.forEach((a, i) => {
+        conteneur.innerHTML += `
+        <div style="border:1px solid #00d9ff30;padding:1.5rem;margin-bottom:1rem;border-radius:10px;background:#10102080;">
+            <h4>Avis n°${i+1} — ${a.date} ${a.anonyme ? '(anonyme)' : ''}</h4>
+            ${a.q1 ? '<p><strong>✅ Aime :</strong> '+a.q1+'</p>' : ''}
+            ${a.q2 ? '<p><strong>⚠️ Gêne :</strong> '+a.q2+'</p>' : ''}
+            ${a.q3 ? '<p><strong>💡 Souhaite :</strong> '+a.q3+'</p>' : ''}
+            ${a.q4 ? '<p><strong>🎨 Ambiance :</strong> '+a.q4.replace('_',' ')+'</p>' : ''}
+            ${a.q5 ? '<p><strong>💬 Autre :</strong> '+a.q5+'</p>' : ''}
+        </div>`;
+    });
+}
+
+function toutSupprimer() {
+    if (confirm('⚠️ Supprimer TOUS les avis ? Cette action est définitive.')) {
+        localStorage.removeItem('avis_amélioration');
+        chargerAvis();
+    }
+}
+
+chargerAvis();
+</script>

@@ -1,249 +1,160 @@
-/* === BASE === */
+/* ==============================================
+   STYLE PRINCIPAL — Ambiance Porte & Lumière
+   ============================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-}
-
-:root {
-    --principal: #00d9ff;
-    --fond-fonce: #1a1a2e;
-    --fond-moyen: #16213e;
-    --texte-clair: #ffffff;
-    --texte-doux: #b0b0c0;
-    --discord: #5865F2;
-    --youtube: #FF0000;
-    --twitch: #9146FF;
-    --succes: #00c853;
-    --alerte: #ff5252;
 }
 
 body {
-    background: linear-gradient(135deg, var(--fond-fonce), var(--fond-moyen));
+    font-family: 'Segoe UI', sans-serif;
+    background: 
+        linear-gradient(rgba(10, 10, 18, 0.75), rgba(10, 10, 18, 0.85)),
+        url('assets/🖼️ images/neverlight-fond.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: var(--texte-clair);
     min-height: 100vh;
     line-height: 1.6;
 }
 
-/* === EN-TÊTE === */
+/* En-tête */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 2.5rem;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 217, 255, 0.2);
 }
 
-.logo {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: var(--principal);
-    letter-spacing: 2px;
+/* ===== LOGO — Porte lumineuse ===== */
+.logo img {
+    height: 55px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.6));
+    transition: all 0.3s ease;
 }
 
-.nav-langue select {
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: none;
-    cursor: pointer;
+.logo img:hover {
+    filter: drop-shadow(0 0 15px rgba(0, 217, 255, 1));
+    transform: scale(1.03);
 }
 
-/* === MENU PRINCIPAL === */
+/* Menu — Boutons */
 .menu-principal {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    padding: 1rem 2.5rem;
-    background: rgba(0, 0, 0, 0.15);
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .btn-nav {
-    background: transparent;
-    border: none;
-    color: var(--texte-doux);
     padding: 0.7rem 1.2rem;
-    border-radius: 8px;
+    background: transparent;
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    color: var(--texte-doux);
+    border-radius: var(--rayon-sm);
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 0.95rem;
 }
 
 .btn-nav:hover, .btn-nav.active {
-    background: var(--principal);
-    color: #000;
-    font-weight: 600;
+    border-color: var(--neon-bleu);
+    color: var(--neon-bleu);
+    background: rgba(0, 217, 255, 0.1);
 }
 
-/* === PAGES === */
+/* Contenu principal */
 main {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 2.5rem;
+    padding: 2rem;
+    min-height: 70vh;
 }
 
-.page {
-    display: none;
-    animation: apparition 0.4s ease;
-}
-
-.page.active {
-    display: block;
-}
-
-@keyframes apparition {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-h1 {
-    font-size: 2.2rem;
+main h1 {
+    font-size: 2rem;
     margin-bottom: 1rem;
-    color: var(--principal);
+    color: var(--neon-bleu);
+    text-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
 }
 
-p {
-    font-size: 1.1rem;
+main h2, main h3 {
+    margin: 1.5rem 0 0.8rem;
+    color: var(--texte-clair);
+}
+
+main p {
+    margin-bottom: 1rem;
     color: var(--texte-doux);
-    margin-bottom: 1.5rem;
+}
+
+/* Blocs & cartes */
+.bloc-parametres, .bloc-action {
+    background: var(--fond-demi);
+    border-radius: var(--rayon-lg);
+    padding: 2rem;
+    margin: 1.5rem 0;
+    border: 1px solid rgba(0, 217, 255, 0.15);
 }
 
 .texte-info {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 217, 255, 0.05);
+    border-left: 3px solid var(--neon-bleu);
     padding: 1rem 1.5rem;
-    border-radius: 10px;
-    border-left: 3px solid var(--principal);
+    margin: 1rem 0;
+    border-radius: 0 var(--rayon-md) var(--rayon-md) 0;
 }
 
-/* === RÉSEAUX === */
+/* Liens réseaux */
 .liens-reseaux {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
     margin: 2rem 0;
 }
 
 .carte-reseau {
+    display: block;
     padding: 1.5rem;
-    border-radius: 14px;
+    border-radius: var(--rayon-md);
     text-decoration: none;
-    font-weight: bold;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    font-size: 1.1rem;
+    color: white;
+    font-weight: 600;
+    transition: transform 0.3s ease;
 }
 
 .carte-reseau:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-.discord { background: var(--discord); color: white; }
-.youtube { background: var(--youtube); color: white; }
-.twitch { background: var(--twitch); color: white; }
+.discord { background: #5865F9; }
+.youtube { background: #FF0000; }
+.twitch { background: #9146FF; }
+.snapchat { background: #FFFC00; color: #000; }
+.spotify { background: #1DB954; }
 
-/* === BOUTONS === */
-.bloc-action {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-}
-
-.btn-primaire, .btn-secondaire, .bouton-grand {
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    border: none;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.btn-primaire {
-    background: linear-gradient(90deg, #00d9ff, #0099cc);
-    color: white;
-}
-
-.btn-secondaire {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: 2px solid var(--principal);
-}
-
-.bouton-grand {
-    background: linear-gradient(90deg, #00d9ff, #0099cc);
-    color: white;
-    font-size: 1.2rem;
-    padding: 1.2rem 3rem;
-    margin-top: 1rem;
-}
-
-.btn-primaire:hover, .btn-secondaire:hover, .bouton-grand:hover {
-    transform: scale(1.03);
-}
-
-/* === CHARTE === */
-.charte-contenu {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 2rem;
-    border-radius: 15px;
-    margin: 2rem 0;
-}
-
-.charte-contenu h3 {
-    color: var(--principal);
-    margin: 1.5rem 0 0.5rem;
-    font-size: 1.1rem;
-}
-
-.charte-contenu p {
-    margin-bottom: 1rem;
-}
-
-.bloc-validation {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-}
-
-.bloc-validation label {
+/* Formulaire — Questionnaire */
+form label {
     display: block;
-    margin-bottom: 1rem;
-    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: var(--texte-clair);
 }
 
-/* === PARAMÈTRES === */
-.bloc-parametres {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
-    border-radius: 12px;
-    margin-top: 1rem;
+form textarea, form select, form input {
+    font-family: inherit;
+    font-size: 1rem;
 }
 
-.bloc-parametres select {
-    margin-left: 1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: none;
-}
-
-/* === PIED DE PAGE === */
+/* Pied de page */
 footer {
     text-align: center;
     padding: 2rem;
-    color: #555;
-    margin-top: 3rem;
+    color: var(--texte-fonce);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 2rem;
 }

@@ -4,154 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stream Unity — Hyphtalès</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon : la lampe torche -->
+    <link rel="icon" href="favicon.ico">
+    
+    <!-- Feuilles de style -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/boutons.css">
 </head>
 <body>
-
-    <!-- En-tête -->
+    <!-- En-tête avec logo -->
     <header>
-        <div class="logo">STREAM UNITY</div>
+        <div class="logo">
+            <img src="assets/images/logo-porte.png" alt="Stream Unity — La porte vers l'ailleurs">
+        </div>
         <div class="nav-langue">
             <select id="select-langue">
-                <option value="fr">Français</option>
+                <option value="fr" selected>Français</option>
                 <option value="en">English</option>
                 <option value="es">Español</option>
-                <option value="de">Deutsch</option>
-                <option value="pt">Português</option>
-                <option value="it">Italiano</option>
-                <option value="ru">Русский</option>
-                <option value="zh">中文</option>
-                <option value="ja">日本語</option>
-                <option value="ko">한국어</option>
             </select>
         </div>
     </header>
 
-    <!-- Navigation -->
+    <!-- Menu -->
     <nav class="menu-principal">
-        <button data-page="accueil" class="btn-nav active">Accueil</button>
-        <button data-page="regarder" class="btn-nav">Regarder</button>
-        <button data-page="discuter" class="btn-nav">Discuter</button>
-        <button data-page="soutenir" class="btn-nav">Soutenir</button>
-        <button data-page="profil" class="btn-nav">Mon Profil</button>
-        <button data-page="espace-createur" class="btn-nav">Espace Créateur</button>
-        <button data-page="regles" class="btn-nav">Règles</button>
+        <button data-page="accueil" data-chemin="pages/accueil.html" class="btn-nav active">🏠 Accueil</button>
+        <button data-page="reseaux" data-chemin="pages/reseaux.html" class="btn-nav">🔗 Réseaux</button>
+        <button data-page="questionnaire" data-chemin="pages/questionnaire.html" class="btn-nav">📋 Donner mon avis</button>
+        <button data-page="fondateur" data-chemin="pages/fondateur.html" class="btn-nav">👤 Espace Fondateur</button>
+        <button data-page="soutiens" data-chemin="pages/soutiens.html" class="btn-nav">💖 Soutenir</button>
+        <button data-page="connexion" data-chemin="pages/connexion.html" class="btn-nav">🔐 Se connecter</button>
     </nav>
 
-    <!-- Contenu principal -->
+    <!-- Contenu qui change -->
     <main id="contenu">
-
-        <!-- Page Accueil -->
-        <section id="page-accueil" class="page active">
-            <h1 id="titre-bienvenue">Bienvenue sur Stream Unity</h1>
-            <p>La communauté d'Hyphtalès — au-delà du Rêve et du Cauchemar 🕯️</p>
-            
-            <div class="liens-reseaux">
-                <a href="https://discord.gg/Xx2Dsw4Y" target="_blank" class="carte-reseau discord">
-                    💬 Discord
-                </a>
-                <a href="https://www.youtube.com/@hyphtales.officiel" target="_blank" class="carte-reseau youtube">
-                    📺 YouTube
-                </a>
-                <a href="https://twitch.tv/hyphtales" target="_blank" class="carte-reseau twitch">
-                    🎮 Twitch
-                </a>
-            </div>
-
-            <div class="bloc-action">
-                <button id="btn-lire-charte" class="btn-primaire">📜 Lire la Charte</button>
-                <button id="btn-inscrire" class="btn-secondaire">S'inscrire</button>
-            </div>
-        </section>
-
-        <!-- Page Regarder -->
-        <section id="page-regarder" class="page">
-            <h1>📺 Regarder</h1>
-            <p>Retrouve les lives et rediffusions</p>
-            <a href="https://twitch.tv/hyphtales" target="_blank" class="bouton-grand">
-                🎮 Aller sur Twitch
-            </a>
-        </section>
-
-        <!-- Page Discuter / Chat -->
-        <section id="page-discuter" class="page">
-            <h1>💬 Discuter</h1>
-            <p>Rejoins le chat en direct sur Discord</p>
-            <a href="https://discord.gg/Xx2Dsw4Y" target="_blank" class="bouton-grand">
-                💬 Rejoindre Discord
-            </a>
-        </section>
-
-        <!-- Page Soutenir -->
-        <section id="page-soutenir" class="page">
-            <h1>💳 Soutenir</h1>
-            <p>Soutenir la création, libre et volontaire</p>
-            <p class="texte-info">Les dons passent uniquement par les canaux officiels sécurisés.</p>
-        </section>
-
-        <!-- Page Profil -->
-        <section id="page-profil" class="page">
-            <h1>👤 Mon Profil</h1>
-            <p>Gérer mon compte, mes préférences et ma langue</p>
-            <div class="bloc-parametres">
-                <label>Langue :</label>
-                <select id="param-langue">
-                    <option value="fr">Français</option>
-                    <option value="en">English</option>
-                    <option value="es">Español</option>
-                </select>
-            </div>
-        </section>
-
-        <!-- Page Espace Créateur -->
-        <section id="page-espace-createur" class="page">
-            <h1>⚙️ Espace Créateur</h1>
-            <p>Gérer les diffusions, la communauté et les annonces</p>
-            <p class="texte-info">Réservé au propriétaire et aux assistants</p>
-        </section>
-
-        <!-- Page Règles / Charte -->
-        <section id="page-regles" class="page">
-            <h1>📜 GRANDE CHARTE — STREAM UNITY</h1>
-            <div class="charte-contenu">
-                <h3>Article 1 — Respect de chacun</h3>
-                <p>Toute personne est la bienvenue, quel que soit son âge, son genre, son origine, son orientation ou ses croyances. Chacun mérite d'être traité avec politesse et bienveillance. Toute forme de discrimination, de haine ou de moquerie est interdite.</p>
-
-                <h3>Article 2 — Identité et prénoms</h3>
-                <p>Chacun est appelé comme il le souhaite. Si je ne sais pas quel prénom ou quelle forme utiliser, je demande en privé avant de parler. Je ne corrige personne publiquement, je ne fais pas de remarque sur l'apparence.</p>
-
-                <h3>Article 3 — Vie privée et protection</h3>
-                <p>Je ne partage pas de donnée personnelle dans le chat : nom réel, adresse, téléphone, mail, photos, liens privés. Je ne demande pas ces informations à qui que ce soit. Ce qui est dit en privé reste en privé.</p>
-
-                <h3>Article 4 — Échanges et modération</h3>
-                <p>Je respecte les décisions des modérateurs et du propriétaire. Je signale un problème en privé, pas en public. Je ne publie pas de lien sans autorisation. Je ne fais pas de publicité ou de promotion sans accord.</p>
-
-                <h3>Article 5 — Paiements et dons</h3>
-                <p>Les soutiens et dons sont libres et volontaires. Aucune donnée bancaire ne doit jamais être partagée dans le chat. Les paiements passent uniquement par les canaux officiels sécurisés. Aucune demande d'argent ne peut être faite en dehors de ces canaux.</p>
-
-                <h3>Article 6 — Rôle des assistants</h3>
-                <p>L'assistant rappelle la règle, il ne sanctionne pas. Seul le propriétaire de la plateforme ou de la chaîne peut prendre une décision de sanction. Toute situation difficile est transmise au propriétaire.</p>
-
-                <h3>Article 7 — Application</h3>
-                <p>En rejoignant Stream Unity ou une chaîne de la plateforme, j'accepte cette Charte. Je m'engage à la lire et à la respecter.</p>
-            </div>
-
-            <div class="bloc-validation">
-                <label>
-                    <input type="checkbox" id="accepter-charte">
-                    J'ai lu et j'accepte la Charte
-                </label>
-                <button id="valider-inscription" class="btn-primaire">Valider l'inscription</button>
-            </div>
-        </section>
-
+        <!-- Chargé automatiquement -->
     </main>
 
-    <!-- Pied de page -->
+    <!-- Bas de page -->
     <footer>
         <p>© 2026 Stream Unity — Hyphtalès | Tous droits réservés</p>
     </footer>
 
+    <!-- Script de navigation -->
+    <script src="js/navigation.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

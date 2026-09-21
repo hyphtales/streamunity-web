@@ -1,0 +1,7 @@
+/* Sur téléphone — on centre encore mieux */
+@media (max-width: 768px) {
+    body {
+        background-size: 100% 100%;
+        background-attachment: scroll; /* Meilleur défilement sur mobile */
+    }
+}

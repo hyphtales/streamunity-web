@@ -1,0 +1,37 @@
+/* ==============================================
+   VARIABLES — Couleurs officielles NEVERLIGHT
+   ============================================== */
+:root {
+  /* Couleurs du fond Neverlight */
+  --neon-bleu: #00d9ff;
+  --neon-bleu-fonce: #0099cc;
+  --neon-rouge: #ff3366;
+  --neon-rouge-fonce: #cc2255;
+
+  /* Fonds */
+  --fond-tres-fonce: #080810;
+  --fond-fonce: #101020;
+  --fond-demi: rgba(26, 26, 48, 0.7);
+  --fond-carte: rgba(255, 255, 255, 0.05);
+
+  /* Texte */
+  --texte-clair: #ffffff;
+  --texte-doux: #b0b0c0;
+  --texte-fonce: #606080;
+
+  /* État */
+  --succes: #00c853;
+  --alerte: #ff5252;
+  --info: #00d9ff;
+
+  /* Espacements */
+  --espace-xs: 0.5rem;
+  --espace-sm: 1rem;
+  --espace-md: 1.5rem;
+  --espace-lg: 2rem;
+
+  /* Arrondis */
+  --rayon-sm: 6px;
+  --rayon-md: 10px;
+  --rayon-lg: 15px;
+}
