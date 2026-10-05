@@ -8,18 +8,18 @@
     <!-- Favicon : la lampe torche -->
     <link rel="icon" href="favicon.ico">
     
-    <!-- Feuilles de style -->
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/boutons.css">
+    <!-- Feuilles de style — CORRIGÉ : tout à la racine -->
+    <link rel="stylesheet" href="variables.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="boutons.css">
 </head>
 <body>
     <!-- En-tête avec logo -->
     <header>
         <div class="logo">
-            <img src="assets/images/logo-porte.png" alt="Stream Unity — La porte vers l'ailleurs">
+            <img src="logo-porte.png" alt="Stream Unity — La porte vers l'ailleurs">
         </div>
         <div class="nav-langue">
             <select id="select-langue">
@@ -29,29 +29,25 @@
             </select>
         </div>
     </header>
-
-    <!-- Menu -->
+    <!-- Menu — CORRIGÉ : chemins sans "pages/" -->
     <nav class="menu-principal">
-        <button data-page="accueil" data-chemin="pages/accueil.html" class="btn-nav active">🏠 Accueil</button>
-        <button data-page="reseaux" data-chemin="pages/reseaux.html" class="btn-nav">🔗 Réseaux</button>
-        <button data-page="questionnaire" data-chemin="pages/questionnaire.html" class="btn-nav">📋 Donner mon avis</button>
-        <button data-page="fondateur" data-chemin="pages/fondateur.html" class="btn-nav">👤 Espace Fondateur</button>
-        <button data-page="soutiens" data-chemin="pages/soutiens.html" class="btn-nav">💖 Soutenir</button>
-        <button data-page="connexion" data-chemin="pages/connexion.html" class="btn-nav">🔐 Se connecter</button>
+        <button data-page="accueil" data-chemin="accueil.html" class="btn-nav active">🏠 Accueil</button>
+        <button data-page="reseaux" data-chemin="reseaux.html" class="btn-nav">🔗 Réseaux</button>
+        <button data-page="questionnaire" data-chemin="questionnaire.html" class="btn-nav">📋 Donner mon avis</button>
+        <button data-page="fondateur" data-chemin="fondateur.html" class="btn-nav">👤 Espace Fondateur</button>
+        <button data-page="soutiens" data-chemin="soutiens.html" class="btn-nav">💖 Soutenir</button>
+        <button data-page="connexion" data-chemin="connexion.html" class="btn-nav">🔐 Se connecter</button>
     </nav>
-
     <!-- Contenu qui change -->
     <main id="contenu">
         <!-- Chargé automatiquement -->
     </main>
-
     <!-- Bas de page -->
     <footer>
         <p>© 2026 Stream Unity — Hyphtalès | Tous droits réservés</p>
     </footer>
-
-    <!-- Script de navigation -->
-    <script src="js/navigation.js"></script>
+    <!-- Scripts — CORRIGÉ : sans "js/" -->
+    <script src="navigation.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
