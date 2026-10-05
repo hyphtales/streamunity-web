@@ -24,5 +24,6 @@ boutonsMenu.forEach(bouton => {
 
 // Page d'accueil par défaut au démarrage
 document.addEventListener('DOMContentLoaded', () => {
-    chargerPage('pages/accueil.html');
+    // ✅ CORRECTION : pas de "pages/" car tout est à la racine
+    chargerPage('accueil.html');
 });
