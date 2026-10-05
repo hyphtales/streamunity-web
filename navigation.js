@@ -1,19 +1,33 @@
-// Charger la page demandée sans rafraîchir tout le site
 const zoneContenu = document.getElementById('contenu');
 const boutonsMenu = document.querySelectorAll('.btn-nav');
 
 async function chargerPage(cheminFichier) {
     try {
         const reponse = await fetch(cheminFichier);
+        if (!reponse.ok) throw new Error("Page introuvable");
         const html = await reponse.text();
+
         zoneContenu.innerHTML = html;
         window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        const scripts = zoneContenu.querySelectorAll('script');
+        scripts.forEach(ancien => {
+            const nouveau = document.createElement('script');
+            if (ancien.src) {
+                nouveau.src = ancien.src;
+            } else {
+                nouveau.textContent = ancien.textContent;
+            }
+            document.body.appendChild(nouveau).remove();
+        });
+
+        console.log("✅ Page chargée :", cheminFichier);
     } catch (erreur) {
-        zoneContenu.innerHTML = `<p>Erreur de chargement</p>`;
+        zoneContenu.innerHTML = `<p style="color:red;">Erreur : ${erreur.message}</p>`;
+        console.error("❌", erreur);
     }
 }
 
-// Au clic sur un bouton du menu
 boutonsMenu.forEach(bouton => {
     bouton.addEventListener('click', () => {
         boutonsMenu.forEach(b => b.classList.remove('active'));
@@ -22,8 +36,6 @@ boutonsMenu.forEach(bouton => {
     });
 });
 
-// Page d'accueil par défaut au démarrage
 document.addEventListener('DOMContentLoaded', () => {
-    // ✅ CORRECTION : pas de "pages/" car tout est à la racine
     chargerPage('accueil.html');
 });
