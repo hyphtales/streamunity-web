@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Page d'accueil par défaut
+    // ✅ CORRIGÉ : sans "pages/" car tout est à la racine
     if (typeof chargerPage === 'function') {
-        chargerPage('pages/accueil.html');
+        chargerPage('accueil.html');
     }
 });
