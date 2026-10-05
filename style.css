@@ -11,7 +11,7 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background: 
         linear-gradient(rgba(10, 10, 18, 0.75), rgba(10, 10, 18, 0.85)),
-        url('assets/🖼️ images/neverlight-fond.jpg') no-repeat center center fixed;
+        url('neverlight-fond.jpg') no-repeat center center fixed;
     background-size: cover;
     color: var(--texte-clair);
     min-height: 100vh;
