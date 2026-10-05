@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Vérificateur Stream Unity</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #1a1a2e; color: white; }
+        .ok { color: #4ade80; }
+        .erreur { color: #f87171; }
+        .info { color: #60a5fa; }
+        h2 { margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Vérification de tes fichiers</h1>
+
+    <h2>📁 Fichiers JavaScript présents ?</h2>
+    <div id="liste-fichiers"></div>
+
+    <h2>🔗 Éléments trouvés dans la page</h2>
+    <div id="liste-elements"></div>
+
+    <script>
+        // Liste des fichiers à vérifier
+        const fichiers = [
+            'navigation.js',
+            'script.js',
+            'connexion.js',
+            'service-soutiens.js',
+            'service-fondateur.js'
+        ];
+
+        const elementsAttendus = [
+            'contenu',
+            'select-langue',
+            'btn_recevoir_code',
+            'btn_valider_connexion',
+            'btn_don_libre',
+            'btn_paiement_paypal',
+            'btn_configurer',
+            'btn_valider_config'
+        ];
+
+        // Vérifie chaque fichier
+        const zoneFichiers = document.getElementById('liste-fichiers');
+        fichiers.forEach(nom => {
+            fetch(nom)
+                .then(res => {
+                    if (res.ok) {
+                        zoneFichiers.innerHTML += `<p class="ok">✅ ${nom} — Présent</p>`;
+                    } else {
+                        zoneFichiers.innerHTML += `<p class="erreur">❌ ${nom} — MANQUANT ou introuvable</p>`;
+                    }
+                })
+                .catch(() => {
+                    zoneFichiers.innerHTML += `<p class="erreur">❌ ${nom} — Erreur d'accès</p>`;
+                });
+        });
+
+        // Vérifie les éléments dans la page
+        const zoneElements = document.getElementById('liste-elements');
+        elementsAttendus.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                zoneElements.innerHTML += `<p class="ok">✅ #${id} — Trouvé</p>`;
+            } else {
+                zoneElements.innerHTML += `<p class="erreur">❌ #${id} — Non trouvé dans cette page</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
