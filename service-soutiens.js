@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnPaypal = document.getElementById('btn_paiement_paypal');
     if (btnPaypal) {
         btnPaypal.addEventListener('click', () => {
-            window.open("https://paypal.me", "_blank");
+            window.open("https://paypal.me/streamunity", "_blank");
         });
     }
 
