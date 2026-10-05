@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion — Stream Unity</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="boutons.css">
+</head>
+<body>
+
 <h1>🔐 Connexion</h1>
 <p>Accède à ton espace personnel</p>
 <div class="bloc-parametres">
@@ -7,3 +18,50 @@
     <button id="btn_connexion_tel" class="btn-secondaire">Connexion par téléphone</button>
     <button id="btn_mdp_oublie" class="btn-secondaire">Mot de passe oublié</button>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const btnRecevoirCode = document.getElementById('btn_recevoir_code');
+    if (btnRecevoirCode) {
+        btnRecevoirCode.addEventListener('click', () => {
+            alert("📧 Un code de connexion va être envoyé à ton adresse e-mail.");
+        });
+    }
+
+    const btnValider = document.getElementById('btn_valider_connexion');
+    if (btnValider) {
+        btnValider.addEventListener('click', () => {
+            alert("✅ Connexion validée ! Bienvenue sur Stream Unity.");
+            if (window.chargerPage) {
+                chargerPage('accueil.html');
+            }
+        });
+    }
+
+    const btnConnexionCode = document.getElementById('btn_connexion_code');
+    if (btnConnexionCode) {
+        btnConnexionCode.addEventListener('click', () => {
+            alert("🔑 Saisis le code reçu par e-mail ou SMS.");
+        });
+    }
+
+    const btnConnexionTel = document.getElementById('btn_connexion_tel');
+    if (btnConnexionTel) {
+        btnConnexionTel.addEventListener('click', () => {
+            alert("📞 Saisis ton numéro de téléphone pour recevoir un lien de connexion.");
+        });
+    }
+
+    const btnMdpOublie = document.getElementById('btn_mdp_oublie');
+    if (btnMdpOublie) {
+        btnMdpOublie.addEventListener('click', () => {
+            alert("🔄 Saisis ton adresse e-mail, nous t'enverrons un lien pour réinitialiser ton mot de passe.");
+        });
+    }
+
+    console.log("✅ Connexion prête — tous les boutons fonctionnent");
+});
+</script>
+
+</body>
+</html>
